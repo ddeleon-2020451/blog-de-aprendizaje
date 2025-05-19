@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f6f6fa;
+  color: #222;
+}
+
+.header {
+  padding: 1.5rem 0;
+  background: #0096d1;
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.course-filter {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+.course-filter button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 16px;
+  background: #e0e0e0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.course-filter .active,
+.course-filter button:hover {
+  background: #0096d1;
+  color: #fff;
+}
+.post-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+.post-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 1.3rem 1.5rem;
+  box-shadow: 0 2px 8px #0001;
+}
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #0079b8;
+}
+.comment-list {
+  background: #fafcff;
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+}
+.comment {
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.7rem;
+}
+.comment-date {
+  display: block;
+  color: #888;
+  font-size: 0.85rem;
+}
+.add-comment {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px #0001;
+  margin-bottom: 2rem;
+}
+.add-comment input,
+.add-comment textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.add-comment button {
+  background: #0096d1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.add-comment button:disabled {
+  background: #79b8e6;
+}

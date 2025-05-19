@@ -4,10 +4,10 @@ import { format } from 'date-fns'
 
 export const createPost = async (req, res)=>{
     try{
-        const {tittle, content, course, category} = req.body
+        const {title, content, course, category} = req.body
         const newPost = await Post.create(
             {
-                tittle, 
+                title, 
                 content,
                 course,
                 category
@@ -51,59 +51,37 @@ export const getPost = async (req, res) => {
         }
     )
   } catch (error) {
-    console.error(error) // Mostrar el error detallado en la consola para debug
+    console.error(error) 
     res.status(500).send(
         {
         success: false,
         message: 'Error al obtener las publicaciones',
-        error: error.message, // Detalle del error
+        error: error.message, 
         }
     )
   }
 }
 
 
-export const getPostId = async (req, res) =>{
-    try{
-        const {id} = req.params
-        const post = await post.findById(id).populate(
-            {
-                path: 'Comments',
-                select: 'author content date -_id'
-            }
-        )
-
-        if(!post){
-            return res.status(404).send(
-                {
-                    success: false,
-                    message: 'Post not found'
-                }
-            )
-        }
-
-        const postD = {
-            ...post.toObject(),
-            date: format(new Date(post.date), 'yyyy-MM-dd HH:mm'),
-            comment: post.comment.map(comment=>({
-                    ...comment.toObject(),
-                    date: format(new Date(comment.date), 'yyyy-MM-dd HH:mm')
-                }
-            ))
-        }
-        res.status(200).send(
-            {
-                success: true,
-                message: 'Post found',
-                post:postD
-            }
-        )
-    }catch(error){
-        res.status(500).send(
-            {
-                success: false,
-                message: 'General Error'
-            }
-        )
+export const getPostId = async (req, res) => {
+  try {
+    const { postId } = req.params
+    const post = await Post.findById(postId).populate('comments')
+    if (!post) {
+      return res.status(404).send({
+        success: false,
+        message: 'Publicación no encontrada'
+      })
     }
+    res.status(200).send({
+      success: true,
+      post
+    })
+  } catch (error) {
+    res.status(500).send({
+      success: false,
+      message: 'General Error',
+      error: error.message
+    })
+  }
 }

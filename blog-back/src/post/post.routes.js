@@ -12,8 +12,8 @@ api.post(
     createPost
 )
 
-api.post(
-    '/get',
+api.get(
+    '/',
     getPost
 )
 

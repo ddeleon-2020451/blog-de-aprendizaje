@@ -2,10 +2,10 @@ import {Schema, model } from 'mongoose'
 
 const postSchema = Schema (
     {
-        tittle: {
+        title: {
             type: String,
-            required: [true, 'The tittle is required'],
-            maxlength: [50, 'The tittle can not be overcome 50 characters']
+            required: [true, 'The title is required'],
+            maxlength: [50, 'The title can not be overcome 50 characters']
         },
 
         content: {
