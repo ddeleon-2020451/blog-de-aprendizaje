@@ -17,7 +17,7 @@ export const getPostById = async (id) => {
 
 // Agregar comentario a publicación
 export const addComment = async (postId, { author, content }) => {
-  const res = await axios.post(`${API_URL}/comments/${postId}`, {
+  const res = await axios.post(`${API_URL}/comment/${postId}`, {
     author,
     content,
   });

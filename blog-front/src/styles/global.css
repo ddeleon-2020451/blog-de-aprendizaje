@@ -1,98 +1,201 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f6f6fa;
-  color: #222;
+  background: #f5faff;
+  color: #23272f;
+  min-height: 100vh;
 }
 
 .header {
-  padding: 1.5rem 0;
-  background: #0096d1;
+  padding: 2.5rem 0 2rem 0;
+  background: linear-gradient(90deg, #00aaff 40%, #005fa3 100%);
   color: #fff;
   text-align: center;
-  font-size: 2rem;
-  letter-spacing: 1px;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  box-shadow: 0 8px 32px #0076be44;
 }
 
 .course-filter {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin: 1rem 0;
+  margin: 2.5rem 0 2rem 0;
 }
 .course-filter button {
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 2.1rem;
   border: none;
-  border-radius: 16px;
-  background: #e0e0e0;
+  border-radius: 22px;
+  background: #e0e9f3;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.2s;
+  font-size: 1.12rem;
+  color: #005fa3;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px #a7c8e644;
 }
 .course-filter .active,
 .course-filter button:hover {
   background: #0096d1;
   color: #fff;
+  box-shadow: 0 4px 16px #0096d177;
 }
+
 .post-list {
   max-width: 900px;
   margin: 0 auto;
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
 }
+
 .post-card {
   background: #fff;
-  border-radius: 20px;
-  padding: 1.3rem 1.5rem;
-  box-shadow: 0 2px 8px #0001;
+  border-radius: 24px;
+  padding: 2rem 2.3rem 1.2rem 2.3rem;
+  box-shadow: 0 6px 32px #0076be22;
+  border-left: 8px solid #0096d1;
+  position: relative;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.post-card:hover {
+  transform: translateY(-4px) scale(1.012);
+  box-shadow: 0 12px 40px #0096d122;
+}
+.post-card h3 a {
+  color: #085cbe;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.post-card h3 a:hover {
+  color: #0096d1;
+  text-decoration: underline;
+}
+.post-card p {
+  font-size: 1.07rem;
+  margin-top: 0.8rem;
 }
 .post-info {
   display: flex;
   justify-content: space-between;
-  font-size: 0.95rem;
-  color: #0079b8;
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: #0096d1;
+  font-weight: 600;
 }
+
 .comment-list {
-  background: #fafcff;
-  border-radius: 14px;
-  padding: 1rem 1.5rem;
-  margin: 2rem 0;
+  background: #f6f8fa;
+  border-radius: 20px;
+  padding: 1.5rem 2.2rem 1.1rem 2.2rem;
+  margin: 2.5rem 0 1.5rem 0;
+  box-shadow: 0 2px 12px #0096d10c;
+}
+.comment-list h4 {
+  margin-bottom: 1rem;
+  color: #085cbe;
+  font-size: 1.15rem;
 }
 .comment {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
   border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.8rem;
+  padding-left: 0.3rem;
+}
+.comment:last-child {
+  border-bottom: none;
+}
+.comment strong {
+  color: #0096d1;
 }
 .comment-date {
   display: block;
-  color: #888;
-  font-size: 0.85rem;
+  color: #999;
+  font-size: 0.92rem;
+  margin-top: 0.18rem;
+  font-weight: 500;
 }
+
 .add-comment {
   background: #fff;
-  border-radius: 12px;
-  padding: 1.2rem 1.5rem;
-  box-shadow: 0 2px 8px #0001;
-  margin-bottom: 2rem;
+  border-radius: 20px;
+  padding: 1.4rem 2rem 2rem 2rem;
+  box-shadow: 0 2px 12px #0079b82b;
+  margin-bottom: 2.2rem;
+  max-width: 800px;
+}
+.add-comment h4 {
+  color: #0079b8;
+  margin-bottom: 1.1rem;
 }
 .add-comment input,
 .add-comment textarea {
   width: 100%;
-  padding: 0.7rem;
-  margin: 0.5rem 0 1rem 0;
-  border: 1px solid #c4c4c4;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 0.9rem;
+  margin: 0.7rem 0 1.2rem 0;
+  border: 1px solid #b3c6e0;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  background: #f6f8fa;
+  resize: none;
+  transition: border 0.2s;
+}
+.add-comment input:focus,
+.add-comment textarea:focus {
+  border: 1.7px solid #0096d1;
+  outline: none;
 }
 .add-comment button {
   background: #0096d1;
   color: #fff;
   border: none;
-  border-radius: 8px;
-  padding: 0.7rem 1.5rem;
-  font-size: 1rem;
+  border-radius: 10px;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s;
 }
 .add-comment button:disabled {
-  background: #79b8e6;
+  background: #b9daf3;
+  cursor: not-allowed;
 }
+.add-comment button:hover:enabled {
+  background: #007bb3;
+}
+
+.btn-back {
+  margin-bottom: 1.6rem;
+  padding: 0.7rem 1.7rem;
+  border-radius: 10px;
+  background: #0096d1;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.16s;
+  font-size: 1.07rem;
+  box-shadow: 0 2px 8px #0096d122;
+}
+.btn-back:hover {
+  background: #007bb3;
+  transform: scale(1.035);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .post-list { max-width: 99vw; }
+  .post-card, .add-comment, .comment-list {
+    padding-left: 1rem; padding-right: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .header { font-size: 2rem; padding: 2rem 0 1.5rem 0; }
+  .post-card, .add-comment, .comment-list {
+    border-radius: 14px;
+    padding: 0.8rem 0.4rem;
+  }
+  .btn-back { font-size: 1rem; padding: 0.7rem 1rem; }
+  .course-filter button { font-size: 1rem; padding: 0.4rem 1rem; }
+}
+

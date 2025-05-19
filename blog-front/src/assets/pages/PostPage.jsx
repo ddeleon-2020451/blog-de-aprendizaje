@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getPostById } from "../services/api";
 import CommentList from "../components/CommentList";
 import AddComment from "../components/AddComment";
 
 const PostPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState(null);
 
   const fetchPost = () => {
@@ -21,6 +22,11 @@ const PostPage = () => {
 
   return (
     <div>
+      {/* Botón para volver al inicio */}
+      <button className="btn-back" onClick={() => navigate("/")}>
+        ← Volver al inicio
+      </button>
+
       <h2>{post.title}</h2>
       <p>
         <strong>Curso:</strong> {post.course} <br />

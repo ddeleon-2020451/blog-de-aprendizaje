@@ -1,25 +1,13 @@
 import { Router } from 'express'
 import {
-    addComment,
-    deleteComment,
-    editComment
+    addComment
 } from './comment.controller.js'
 
 const api = Router ()
 
 api.post(
-    '/',
+    '/:postId',
     addComment
-)
-
-api.delete(
-    '/delete/:id',
-    deleteComment
-)
-
-api.put(
-    '/update/:id',
-    editComment
 )
 
 export default api

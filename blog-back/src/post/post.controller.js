@@ -65,8 +65,8 @@ export const getPost = async (req, res) => {
 
 export const getPostId = async (req, res) => {
   try {
-    const { postId } = req.params
-    const post = await Post.findById(postId).populate('comments')
+    const { id } = req.params 
+    const post = await Post.findById(id).populate('comments')
     if (!post) {
       return res.status(404).send({
         success: false,

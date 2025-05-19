@@ -26,17 +26,17 @@ const postSchema = Schema (
             enum: ['Código', 'Infografía', 'Mapa Mental']
         },
 
+         comments: [
+            {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment'
+            }
+        ],
+
         date: {
             type: Date,
             default: Date.now,
-        },
-
-        comments: [
-            {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment',
-            }
-        ],
+        }
   },
 )
 
