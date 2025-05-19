@@ -31,62 +31,37 @@ export const createPost = async (req, res)=>{
     }
 }
 
-/*export const getPost = async (req, res)=>{
-    try{
-        const { category, course } = req.body
-        let filter = {}
+export const getPost = async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ date: -1 })
 
-        if (category) filter.category = category
-        if (course) filter.course = course
-
-        const postData = await Post
-        .find(filter)
-        .populate(
-
-            {
-                path: 'Comment',
-                select: 'author content date -_id'
-            }
-        )
-        .sort(
-            {
-                //ORDENAR DE FORMA DESCENDENTE
-                date: -1
-            }
-        )
-        
-        //MANEJAMOS EL FORMATO DE FECHA
-        const post = postData.map(post =>{
-            const obj = post.toObject()   
-            return {
-                ...obj,
-                date: format(new Date(obj.date), 'yyyy-MM-dd HH:mm'),
-                coment: (obj.comment || []).map(com =>
-                (
-                    {
-                        ...com,
-                        date: format(new Date(com.date), 'yyyy-MM-dd HH:mm')
-                    }
-                )
-                )
-            }
-        })
-        res.status(200).send(
-            {
-                succes: true,
-                post
-            }
-        )
-    }catch(error){
-        res.status(500).send(
+    if (!posts || posts.length === 0) {
+      return res.status(404).send(
             {
                 success: false,
-                message: 'General Error',
-                error: error.message
+                message: 'No se encontraron publicaciones',
             }
         )
     }
-}*/
+
+    res.status(200).send(
+        { 
+            success: true, 
+            posts 
+        }
+    )
+  } catch (error) {
+    console.error(error) // Mostrar el error detallado en la consola para debug
+    res.status(500).send(
+        {
+        success: false,
+        message: 'Error al obtener las publicaciones',
+        error: error.message, // Detalle del error
+        }
+    )
+  }
+}
+
 
 export const getPostId = async (req, res) =>{
     try{

@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import {
     createPost,
+    getPost,
     getPostId
 } from './post.controller.js'
 
@@ -11,11 +12,11 @@ api.post(
     createPost
 )
 
-/*api.post(
+api.post(
     '/get',
     getPost
 )
-*/
+
 api.get(
     '/:id',
     getPostId
